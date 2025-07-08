@@ -13,6 +13,14 @@ Stack createStack(int capacity) {
     s.cap = capacity;
     return s;
 }
+void push(Stack *s, int value) {
+    if (s->top >= s->cap - 1) {
+        printf("Stack overflow! Cannot push %d\n", value);
+        return;
+    }
+    s->top++;
+    s->elements[s->top] = value;
+}
 void printStack(Stack s) {
     printf("stack={\n  elements: [");
     for (int i = 0; i <= s.top; i++) {
@@ -23,6 +31,11 @@ void printStack(Stack s) {
 }
 int main() {
     Stack s = createStack(5);
+    push(&s, 10);
+    push(&s, 20);
+    push(&s, 30);
+    push(&s, 40);
+    push(&s, 50);
     printStack(s);
     return 0;
 }
