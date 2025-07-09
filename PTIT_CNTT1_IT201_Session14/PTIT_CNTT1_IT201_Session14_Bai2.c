@@ -22,8 +22,6 @@ void push(Stack* stack, int value) {
     newNode->next = stack->top;
     stack->top = newNode;
 }
-
-// Hàm kiểm tra stack rỗng
 int isEmpty(Stack* stack) {
     return stack->top == NULL;
 }
