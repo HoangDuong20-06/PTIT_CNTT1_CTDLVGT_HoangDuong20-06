@@ -23,7 +23,17 @@ void push(Stack* stack, int value) {
     stack->top = newNode;
 }
 
+// Hàm kiểm tra stack rỗng
+int isEmpty(Stack* stack) {
+    return stack->top == NULL;
+}
+
 void printStack(Stack stack) {
+    if (stack.top == NULL) {
+        printf("Stack rong!\n");
+        return;
+    }
+
     Node* temp = stack.top;
     printf("stack = { ");
     while (temp != NULL) {
@@ -36,6 +46,12 @@ void printStack(Stack stack) {
 int main() {
     Stack stack;
     stack.top = NULL;
+
+    if (isEmpty(&stack)) {
+        printf("Stack ban dau rong!\n");
+        return 0;
+    }
+
     push(&stack, 5);
     push(&stack, 4);
     push(&stack, 3);
@@ -45,6 +61,7 @@ int main() {
     printf("Nhap phan tu muon them vao stack: ");
     scanf("%d", &x);
     push(&stack, x);
+
     printf("Stack sau khi them phan tu:\n");
     printStack(stack);
 
